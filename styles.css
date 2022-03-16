@@ -34,20 +34,7 @@
 
 }
 
-.input-box{
-    display: inline-block;
-    width:45%;
-    height:36px;
-    margin: 5px;
-    padding:0 0 0 12px;
-    border-radius: 6px;
-    border: 1px solid #dfe1e5;
-    font-size:13px;
-    color: #202124;
-    text-align: left;
-    overflow: hidden;
-}
-
+.input-box,
 .select-box{
     display: inline-block;
     width:45%;
@@ -62,8 +49,14 @@
     overflow: hidden;
 }
 
+
 .error-message{
     color: red;
     margin-top: 1rem;
 }
-
+#button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}

@@ -45,6 +45,8 @@ const selectTargetCode = document.querySelector("#target-code");
 
 const errorMsg = document.querySelector(".error-message");
 
+const swap = document.querySelector(".btn-swap");
+
 let supportedCodes = [];
 let conversionRate = 0;
 
@@ -107,5 +109,24 @@ inputBaseAmount.addEventListener("input", () =>{
 inputTargetAmount.addEventListener("input", () =>{
     inputBaseAmount.value = Math.round((inputTargetAmount.value / conversionRate) * 10**6) /10**6;
 });
+//reset
+function clearVal() {
+    window.location.reload();
+    document.querySelector(".input-group").innerHTML = "";
+}
+//reverse
+async function reverseTemp(reverse = "false") {
+    if (reverse === "swap"){
+        [inputBaseAmount.value,inputTargetAmount.value] = [inputTargetAmount.value,inputBaseAmount.value];
+        [selectBaseCode.value,selectTargetCode.value] = [selectTargetCode.value,selectBaseCode.value];
+    }
+    await updateExchangeRate();
+}
+swap.addEventListener("click",() => {
+    reverseTemp("swap");
+})
+
+
+
 
 initialize();
